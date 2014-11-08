@@ -13,6 +13,11 @@
 		06BE06111A0AE452000CB849 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06BE06101A0AE452000CB849 /* Images.xcassets */; };
 		06BE06141A0AE452000CB849 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BE06121A0AE452000CB849 /* LaunchScreen.xib */; };
 		06BE06201A0AE452000CB849 /* SimplePlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE061F1A0AE452000CB849 /* SimplePlayerTests.swift */; };
+		06BE062B1A0AE49B000CB849 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE062A1A0AE49B000CB849 /* SongManager.swift */; };
+		06BE062F1A0AE4B0000CB849 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE062D1A0AE4B0000CB849 /* Album.swift */; };
+		06BE06301A0AE4B0000CB849 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE062E1A0AE4B0000CB849 /* Song.swift */; };
+		06BE06321A0AEAE1000CB849 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BE06311A0AEAE1000CB849 /* MediaPlayer.framework */; };
+		06BE06341A0AEAE8000CB849 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BE06331A0AEAE8000CB849 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		06BE06191A0AE452000CB849 /* SimplePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BE061E1A0AE452000CB849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06BE061F1A0AE452000CB849 /* SimplePlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayerTests.swift; sourceTree = "<group>"; };
+		06BE062A1A0AE49B000CB849 /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
+		06BE062D1A0AE4B0000CB849 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		06BE062E1A0AE4B0000CB849 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		06BE06311A0AEAE1000CB849 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		06BE06331A0AEAE8000CB849 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BE06341A0AEAE8000CB849 /* AVFoundation.framework in Frameworks */,
+				06BE06321A0AEAE1000CB849 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +71,8 @@
 		06BE05FB1A0AE452000CB849 = {
 			isa = PBXGroup;
 			children = (
+				06BE06331A0AEAE8000CB849 /* AVFoundation.framework */,
+				06BE06311A0AEAE1000CB849 /* MediaPlayer.framework */,
 				06BE06061A0AE452000CB849 /* SimplePlayer */,
 				06BE061C1A0AE452000CB849 /* SimplePlayerTests */,
 				06BE06051A0AE452000CB849 /* Products */,
@@ -77,6 +91,8 @@
 		06BE06061A0AE452000CB849 /* SimplePlayer */ = {
 			isa = PBXGroup;
 			children = (
+				06BE062C1A0AE4A6000CB849 /* model */,
+				06BE06291A0AE484000CB849 /* manager */,
 				06BE06091A0AE452000CB849 /* AppDelegate.swift */,
 				06BE060B1A0AE452000CB849 /* ViewController.swift */,
 				06BE060D1A0AE452000CB849 /* Main.storyboard */,
@@ -110,6 +126,23 @@
 				06BE061E1A0AE452000CB849 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06BE06291A0AE484000CB849 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				06BE062A1A0AE49B000CB849 /* SongManager.swift */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		06BE062C1A0AE4A6000CB849 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				06BE062D1A0AE4B0000CB849 /* Album.swift */,
+				06BE062E1A0AE4B0000CB849 /* Song.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +194,11 @@
 				TargetAttributes = {
 					06BE06031A0AE452000CB849 = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					06BE06181A0AE452000CB849 = {
 						CreatedOnToolsVersion = 6.1;
@@ -212,8 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BE062B1A0AE49B000CB849 /* SongManager.swift in Sources */,
 				06BE060C1A0AE452000CB849 /* ViewController.swift in Sources */,
 				06BE060A1A0AE452000CB849 /* AppDelegate.swift in Sources */,
+				06BE062F1A0AE4B0000CB849 /* Album.swift in Sources */,
+				06BE06301A0AE4B0000CB849 /* Song.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +446,7 @@
 				06BE06251A0AE452000CB849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06BE06261A0AE452000CB849 /* Build configuration list for PBXNativeTarget "SimplePlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +455,7 @@
 				06BE06281A0AE452000CB849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
