@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 madobon. All rights reserved.
 //
 
-import Foundation
-
 /**
  * アルバム情報クラス
  */

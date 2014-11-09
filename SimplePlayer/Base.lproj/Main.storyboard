@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0hU-vx-gmg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,19 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9iP-qw-LV2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9iP-qw-LV2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="vS9-Es-IIx"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="pgw-nZ-S1r"/>
                                 </connections>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-zr-Fzr">
+                                <rect key="frame" x="170" y="518" width="260" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="yNI-Db-I6s"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="doSlide:" destination="vXZ-lx-hvc" eventType="valueChanged" id="O0c-Vg-PK2"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9iP-qw-LV2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1kI-zv-Spq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9iP-qw-LV2" secondAttribute="trailing" id="sAl-H2-pp3"/>
+                            <constraint firstItem="JEK-zr-Fzr" firstAttribute="centerX" secondItem="9iP-qw-LV2" secondAttribute="centerX" id="5nc-5L-nYP"/>
+                            <constraint firstAttribute="trailing" secondItem="9iP-qw-LV2" secondAttribute="trailing" id="8Es-d8-UOH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="JEK-zr-Fzr" secondAttribute="bottom" constant="8" symbolic="YES" id="DqF-5c-ghn"/>
+                            <constraint firstItem="JEK-zr-Fzr" firstAttribute="top" secondItem="9iP-qw-LV2" secondAttribute="bottom" constant="8" symbolic="YES" id="P4y-Lk-8u0"/>
+                            <constraint firstItem="9iP-qw-LV2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ddk-Mi-55f"/>
+                            <constraint firstItem="9iP-qw-LV2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eWT-HT-0qv"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -41,6 +53,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="slider" destination="JEK-zr-Fzr" id="bRE-pl-rR4"/>
                         <outlet property="tableView" destination="9iP-qw-LV2" id="eAq-WT-Ee8"/>
                     </connections>
                 </viewController>

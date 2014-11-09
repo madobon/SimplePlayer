@@ -29,13 +29,23 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     var audio: AVAudioPlayer! = nil
 
-    
+    /** Outlet: テーブルビュー */
     @IBOutlet private weak var tableView: UITableView!
     
+    /** Outlet: スライダー */
+    @IBOutlet private weak var slider: UISlider!
+    
+    /** Action: スライド */
+    @IBAction func doSlide(sender: UISlider) {
+        audio.volume = slider.value
+    }
+    
+    /** Action: 停止 */
     @IBAction func doStop(sender: UIBarButtonItem) {
         stopAudio()
     }
     
+    /** Action: 再生/一時停止 */
     @IBAction func doPlayPause(sender: UIBarButtonItem) {
         
         toggleAudio()
@@ -84,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         var song = albums[indexPath.section].songs[indexPath.row]
         
-        cell.textLabel.text = song.songName
+        cell.textLabel.text = "\(song.songName) [\(song.songDuration)]"
         cell.detailTextLabel!.text = song.artistName
         cell.imageView.image = song.albumArt
         
@@ -160,7 +170,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     func setupAVAudioPlayer() {
         
         audio = AVAudioPlayer(contentsOfURL: nowPlayingSong.songUrl, error: nil)
-        audio.volume = 1.0
+        
+        audio.volume = slider.value
         
     }
     
@@ -226,6 +237,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.setToolbarItems(buttons, animated: false)
     }
     
+    /**
+     * 前の曲
+     */
     func previousAudio() {
         if nowPlayingIndexPath.row - 1 < 0 {
             // 前のアルバム
@@ -254,6 +268,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         playAudio()
     }
     
+    /**
+     * 次の曲
+     */
     func nextAudio() {
         
         if nowPlayingIndexPath.row + 1 > albums[nowPlayingIndexPath.section].songs.count - 1 {
@@ -276,13 +293,11 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.tableView.selectRowAtIndexPath(nowPlayingIndexPath, animated: true, scrollPosition: .Middle)
         
         // セットアップ
-        
         setupAVAudioPlayer()
         
         // 再生
         playAudio()
     }
-    
     
 }
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 madobon. All rights reserved.
 //
 
-import Foundation
 import MediaPlayer
 
 /**
@@ -38,12 +37,14 @@ class SongManager {
                 
                 songs.append(
                     Song(
-                        albumArt:   UIImage(), // TODO: add albumart
-                        albumName:  song.valueForProperty( MPMediaItemPropertyAlbumTitle ) as String,
-                        artistName: song.valueForProperty( MPMediaItemPropertyArtist ) as String,
-                        songName:   song.valueForProperty( MPMediaItemPropertyTitle ) as String,
-                        songId:     song.valueForProperty( MPMediaItemPropertyPersistentID ) as NSNumber,
-                        songUrl:    song.valueForProperty( MPMediaItemPropertyAssetURL ) as? NSURL
+//                        albumArt:       song.valueForProperty( MPMediaItemPropertyArtwork ) as? UIImage,
+                        albumArt:       UIImage(),
+                        albumName:      song.valueForProperty( MPMediaItemPropertyAlbumTitle ) as String,
+                        artistName:     song.valueForProperty( MPMediaItemPropertyArtist ) as String,
+                        songId:         song.valueForProperty( MPMediaItemPropertyPersistentID ) as NSNumber,
+                        songName:       song.valueForProperty( MPMediaItemPropertyTitle ) as String,
+                        songDuration:   song.valueForProperty( MPMediaItemPropertyPlaybackDuration ) as NSNumber,
+                        songUrl:        song.valueForProperty( MPMediaItemPropertyAssetURL ) as? NSURL
                     )
                 )
             }

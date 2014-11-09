@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 /**
  * 曲情報クラス
@@ -15,7 +14,7 @@ import Foundation
 class Song {
     
     /** アルバムアート */
-    var albumArt: UIImage
+    var albumArt: UIImage?
     
     /** アルバム名 */
     var albumName: String
@@ -35,28 +34,33 @@ class Song {
     // iCloudにあって、iPhoneにダウンロードされていない曲。
     var songUrl: NSURL?
     
+    /** 曲の長さ */
+    var songDuration: NSNumber
     
     /**
      * デフォルトコンストラクタ（初期化）
      */
     init() {
-        self.albumArt = UIImage()
+        self.albumArt = nil
         self.albumName = ""
         self.artistName = ""
+        self.songId = 0
         self.songName = ""
-        self.songId = 0.0
-        self.songUrl = NSURL()
+        self.songDuration = 0
+        self.songUrl = nil
     }
     
     /**
      * デフォルトコンストラクタ（初期値設定）
      */
-    init(albumArt:UIImage, albumName:String, artistName:String, songName:String, songId:NSNumber, songUrl:NSURL?){
+    init(albumArt:UIImage?, albumName:String, artistName:String, songId:NSNumber, songName:String, songDuration: NSNumber, songUrl:NSURL?){
         self.albumArt = albumArt
         self.albumName = albumName
         self.artistName = artistName
-        self.songName = songName
         self.songId = songId
+        self.songName = songName
+        self.songDuration = songDuration
         self.songUrl = songUrl
+
     }
 }
