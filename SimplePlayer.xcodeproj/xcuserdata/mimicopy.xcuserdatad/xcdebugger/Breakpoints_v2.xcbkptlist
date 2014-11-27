@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimplePlayer/ViewController.swift"
-            timestampString = "437132383.707258"
+            timestampString = "438787457.085792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "toggleAudio()"
             landmarkType = "5">
          </BreakpointContent>

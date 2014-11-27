@@ -56,6 +56,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         super.viewDidLoad()
         
+        // スワイプ検知用
+        addSwipeRecognizer()
         
         // タイトルの設定
         self.title = "音楽"
@@ -297,6 +299,42 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         // 再生
         playAudio()
+    }
+    
+    /**
+     * スワイプ検知用
+     */
+    func addSwipeRecognizer() {
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        
+        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    /**
+     * スワイプ
+     */
+    func swiped(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Left:
+                // 左スワイプで次の曲
+                nextAudio()
+
+            case UISwipeGestureRecognizerDirection.Right:
+                // 右スワイプで前の曲
+                previousAudio()
+            default:
+                break
+            }
+            
+        }
     }
     
 }
